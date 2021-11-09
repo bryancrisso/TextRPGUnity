@@ -8,14 +8,15 @@ TagManager:
   - InventoryManager
   - WeaponTrigger
   - EnemyTrigger
+  - Enemy
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Weapon
   - Water
   - UI
-  - 
+  - Obstacle
   - 
   - 
   - 

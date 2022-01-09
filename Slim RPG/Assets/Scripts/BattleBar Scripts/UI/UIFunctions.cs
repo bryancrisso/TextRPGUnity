@@ -2,39 +2,42 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class UIFunctions : MonoBehaviour
+namespace BattleBar
 {
-    private bool inventoryToggled = true;
-    private bool floorToggled = false;
-    public GameObject statBar;
-    public GameObject floorDisplay;
-    public GameManager gameManager;
-
-    void Start()
+    public class UIFunctions : MonoBehaviour
     {
-        gameObject.SetActive(inventoryToggled);
-        statBar.SetActive(!inventoryToggled);
-        floorDisplay.SetActive(!inventoryToggled);
-    }
+        private bool inventoryToggled = true;
+        private bool floorToggled = false;
+        public GameObject statBar;
+        public GameObject floorDisplay;
+        public GameManager gameManager;
 
-    public void toggleInventory()
-    {
-        inventoryToggled = !inventoryToggled;
-        floorToggled = false;
+        void Start()
+        {
+            gameObject.SetActive(inventoryToggled);
+            statBar.SetActive(!inventoryToggled);
+            floorDisplay.SetActive(!inventoryToggled);
+        }
 
-        gameObject.SetActive(inventoryToggled);
-        statBar.SetActive(!inventoryToggled);
-        floorDisplay.SetActive(false);
-    }
+        public void toggleInventory()
+        {
+            inventoryToggled = !inventoryToggled;
+            floorToggled = false;
 
-    public void toggleFloorDisplay()
-    {
-        inventoryToggled = false;
-        floorToggled = !floorToggled;
+            gameObject.SetActive(inventoryToggled);
+            statBar.SetActive(!inventoryToggled);
+            floorDisplay.SetActive(false);
+        }
 
-        gameObject.SetActive(false);
-        statBar.SetActive(!floorToggled);
-        floorDisplay.SetActive(floorToggled);
+        public void toggleFloorDisplay()
+        {
+            inventoryToggled = false;
+            floorToggled = !floorToggled;
 
+            gameObject.SetActive(false);
+            statBar.SetActive(!floorToggled);
+            floorDisplay.SetActive(floorToggled);
+
+        }
     }
 }

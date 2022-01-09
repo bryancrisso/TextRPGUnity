@@ -3,57 +3,59 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
 using Newtonsoft.Json;
-
-public class SaveManager : MonoBehaviour
+namespace BattleBar
 {
-    public List<string> saves = new List<string>();
-
-    public GameObject saveList;
-
-    public GameObject savePanel;
-
-    public void LoadSave(string saveFolder)
+    public class SaveManager : MonoBehaviour
     {
-        string playerJson = File.ReadAllText(saveFolder + "\\player.json");
-        Player _player = JsonConvert.DeserializeObject<Player>(playerJson);
+        public List<string> saves = new List<string>();
 
-        Player player = gameObject.GetComponent<GameManager>().player;
+        public GameObject saveList;
 
-        player.currentHealth = _player.currentHealth;
-        player.maxHealth = _player.maxHealth;
+        public GameObject savePanel;
 
-        player.inventory = _player.inventory;
-        player.floors = _player.floors;
+        public void LoadSave(string saveFolder)
+        {
+            string playerJson = File.ReadAllText(saveFolder + "\\player.json");
+            Player _player = JsonConvert.DeserializeObject<Player>(playerJson);
 
-        player.gold = _player.gold;
+            Player player = gameObject.GetComponent<GameManager>().player;
 
-        player.playerName = _player.playerName;
+            player.currentHealth = _player.currentHealth;
+            player.maxHealth = _player.maxHealth;
 
-        player.currentWeapon = _player.currentWeapon;
+            player.inventory = _player.inventory;
+            player.floors = _player.floors;
 
-        player.currentFloor = _player.currentFloor;
-        player.floorCoords = _player.floorCoords;
+            player.gold = _player.gold;
 
-        player.statUI.updateStats();
-        player.statBarUI.updateStats();
+            player.playerName = _player.playerName;
 
-        player.gameManager.floorDisplay.RoomInteraction(player.floors[player.currentFloor][player.floorCoords[0], player.floorCoords[1]]);
-    }
+            player.currentWeapon = _player.currentWeapon;
 
-    public void CreateSave(string saveFolder)
-    {
-        saves.Add(saveFolder);
-        Directory.CreateDirectory(saveFolder);
-        Save(saveFolder);
-        GameObject _savePanel = Instantiate(savePanel, saveList.transform);
-        _savePanel.GetComponent<SavePanel>().index = saves.Count;
-        _savePanel.GetComponent<SavePanel>().saveNameText.text = saveFolder;
+            player.currentFloor = _player.currentFloor;
+            player.floorCoords = _player.floorCoords;
 
-    }
+            player.statUI.updateStats();
+            player.statBarUI.updateStats();
 
-    public void Save(string saveFolder)
-    {
-        string playerJson = JsonConvert.SerializeObject(gameObject.GetComponent<GameManager>().player).ToString();
-        File.WriteAllText(saveFolder + "\\player.json", playerJson);
+            player.gameManager.floorDisplay.RoomInteraction(player.floors[player.currentFloor][player.floorCoords[0], player.floorCoords[1]]);
+        }
+
+        public void CreateSave(string saveFolder)
+        {
+            saves.Add(saveFolder);
+            Directory.CreateDirectory(saveFolder);
+            Save(saveFolder);
+            GameObject _savePanel = Instantiate(savePanel, saveList.transform);
+            _savePanel.GetComponent<SavePanel>().index = saves.Count;
+            _savePanel.GetComponent<SavePanel>().saveNameText.text = saveFolder;
+
+        }
+
+        public void Save(string saveFolder)
+        {
+            string playerJson = JsonConvert.SerializeObject(gameObject.GetComponent<GameManager>().player).ToString();
+            File.WriteAllText(saveFolder + "\\player.json", playerJson);
+        }
     }
 }

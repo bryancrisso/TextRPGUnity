@@ -1,0 +1,45 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f36c83a9a71e0a94597de06177325ad2, type: 3}
+  m_Name: Sword
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 6962296892703756622, guid: 408d0c79448be0a4fb5ee370b7fbc2ba, type: 3}
+  type: 1
+  displayName: Sword
+  description: A basic weapon. Simple, yet effective.
+  cost: 0
+  isStackable: 0
+  level: 0
+  quality: 0
+  id: 0
+  attackCombos:
+  - damage: 20
+    attackInterval: 0.2
+    swingTime: 0.1
+    swingAngle: 60
+    attackType: 0
+    direction: 0
+  - damage: 30
+    attackInterval: 0.3
+    swingTime: 0.15
+    swingAngle: 120
+    attackType: 0
+    direction: 1
+  - damage: 40
+    attackInterval: 0.4
+    swingTime: 0.2
+    swingAngle: 180
+    attackType: 0
+    direction: 0
+  comboDelay: 0.2
+  maxDurability: 0
+  currentDurability: 0

@@ -2,31 +2,36 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BattleBarCursor : MonoBehaviour
+namespace BattleBar
 {
-    public bool isTouching;
-    public string collisionTag;
-    public TriggerTypes triggerType;
-    public GameObject collidingTrigger;
 
-    private void OnTriggerEnter(Collider collision)
+    public class BattleBarCursor : MonoBehaviour
     {
-        isTouching = true;
-        if (collision.gameObject.tag == "WeaponTrigger")
+        public bool isTouching;
+        public string collisionTag;
+        public TriggerTypes triggerType;
+        public GameObject collidingTrigger;
+
+        private void OnTriggerEnter(Collider collision)
         {
-            collisionTag = collision.gameObject.tag;
-            triggerType = TriggerTypes.Weapon;
+            isTouching = true;
+            if (collision.gameObject.tag == "WeaponTrigger")
+            {
+                collisionTag = collision.gameObject.tag;
+                triggerType = TriggerTypes.Weapon;
+            }
+            else if (collision.gameObject.tag == "EnemyTrigger")
+            {
+                collisionTag = collision.gameObject.tag;
+                triggerType = TriggerTypes.Enemy;
+            }
+            collidingTrigger = collision.gameObject;
         }
-        else if (collision.gameObject.tag == "EnemyTrigger")
+        private void OnTriggerExit(Collider collision)
         {
-            collisionTag = collision.gameObject.tag;
-            triggerType = TriggerTypes.Enemy;
+            isTouching = false;
         }
-        collidingTrigger = collision.gameObject;
-    }
-    private void OnTriggerExit(Collider collision)
-    {
-        isTouching = false;
+
     }
 
 }

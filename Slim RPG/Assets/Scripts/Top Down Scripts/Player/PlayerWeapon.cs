@@ -20,7 +20,7 @@ namespace TopDown
         void Start()
         {
             currentAttackDelay = 0;
-            currentComboDelay = equippedWeapon.comboDelay + equippedWeapon.attackCombos[attackComboIndex].attackInterval;
+            currentComboDelay = equippedWeapon.comboDelay + equippedWeapon.weaponData.attackCombos[attackComboIndex].attackInterval;
             equippedWeapon.gameObject.SetActive(false);
         }
 
@@ -46,8 +46,8 @@ namespace TopDown
                         attackComboIndex = 0;
                     }
 
-                    currentAttackDelay = equippedWeapon.attackCombos[attackComboIndex].attackInterval;
-                    currentComboDelay = equippedWeapon.comboDelay + equippedWeapon.attackCombos[attackComboIndex].attackInterval; //add on attack interval
+                    currentAttackDelay = equippedWeapon.weaponData.attackCombos[attackComboIndex].attackInterval;
+                    currentComboDelay = equippedWeapon.comboDelay + equippedWeapon.weaponData.attackCombos[attackComboIndex].attackInterval; //add on attack interval
 
                     //do attack
 
@@ -72,7 +72,7 @@ namespace TopDown
         {
             float attackProgress = 0f;
 
-            bool direction = equippedWeapon.attackCombos[attackComboIndex].direction;
+            bool direction = equippedWeapon.weaponData.attackCombos[attackComboIndex].direction;
 
             isAttacking = true;
 
@@ -91,21 +91,21 @@ namespace TopDown
             {
                 if (direction)
                 {
-                    transform.rotation = Quaternion.Euler(0f, 0f, initialAngle - equippedWeapon.attackCombos[attackComboIndex].swingAngle / 2 + Mathf.Lerp(0, equippedWeapon.attackCombos[attackComboIndex].swingAngle, attackProgress));
+                    transform.rotation = Quaternion.Euler(0f, 0f, initialAngle - equippedWeapon.weaponData.attackCombos[attackComboIndex].swingAngle / 2 + Mathf.Lerp(0, equippedWeapon.weaponData.attackCombos[attackComboIndex].swingAngle, attackProgress));
 
-                    attackProgress += Time.deltaTime * 1 / equippedWeapon.attackCombos[attackComboIndex].swingTime;
+                    attackProgress += Time.deltaTime * 1 / equippedWeapon.weaponData.attackCombos[attackComboIndex].swingTime;
                 }
                 else
                 {
-                    transform.rotation = Quaternion.Euler(0f, 0f, initialAngle + equippedWeapon.attackCombos[attackComboIndex].swingAngle / 2 - Mathf.Lerp(0, equippedWeapon.attackCombos[attackComboIndex].swingAngle, attackProgress));
+                    transform.rotation = Quaternion.Euler(0f, 0f, initialAngle + equippedWeapon.weaponData.attackCombos[attackComboIndex].swingAngle / 2 - Mathf.Lerp(0, equippedWeapon.weaponData.attackCombos[attackComboIndex].swingAngle, attackProgress));
 
-                    attackProgress += Time.deltaTime * 1 / equippedWeapon.attackCombos[attackComboIndex].swingTime;
+                    attackProgress += Time.deltaTime * 1 / equippedWeapon.weaponData.attackCombos[attackComboIndex].swingTime;
                 }
 
                 yield return null;
             }
 
-            if (attackComboIndex < equippedWeapon.attackCombos.Length - 1)
+            if (attackComboIndex < equippedWeapon.weaponData.attackCombos.Length - 1)
             {
                 attackComboIndex++;
             }
@@ -156,7 +156,7 @@ namespace TopDown
             {
                 EnemyScript enemy = collision.gameObject.GetComponent<EnemyScript>();
 
-                enemy.Damage(equippedWeapon.attackCombos[attackComboIndex].damage);
+                enemy.Damage(equippedWeapon.weaponData.attackCombos[attackComboIndex].damage);
             }
         }
     }

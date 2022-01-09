@@ -2,20 +2,22 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
-
-public class SavePanel : MonoBehaviour
+namespace BattleBar
 {
-    public int index;
-    public TextMeshProUGUI saveNameText;
-    public SaveManager saveManager;
-
-    private void Start()
+    public class SavePanel : MonoBehaviour
     {
-        saveManager = GameObject.FindGameObjectWithTag("TextureManager").GetComponent<SaveManager>();
-    }
+        public int index;
+        public TextMeshProUGUI saveNameText;
+        public SaveManager saveManager;
 
-    public void On_Create_Button_Click()
-    {
-        //here
+        private void Start()
+        {
+            saveManager = GameObject.FindGameObjectWithTag("TextureManager").GetComponent<SaveManager>();
+        }
+
+        public void On_Create_Button_Click()
+        {
+            //here
+        }
     }
 }

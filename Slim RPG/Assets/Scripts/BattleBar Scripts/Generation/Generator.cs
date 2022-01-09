@@ -4,133 +4,137 @@ using UnityEngine;
 using System.IO;
 using System.Linq;
 
-public enum roomTypes
+namespace BattleBar
 {
-    none,
-    empty,
-    upstairs,
-    downstairs,
-    fight,
-    trader,
-    loot
-}
 
-public class Room
-{
-    public roomTypes content = roomTypes.none;
-    public bool[] connections = new bool[]{false,false,false,false};
-    public Enemy enemy;
-    //traderType
-    public bool explored = false;
-    public List<Item> loot = new List<Item>();
-}
-
-public static class Generator
-{
-    public static Room[,] Generate(int xSize, int ySize, int roomCount, List<Enemy> enemyList, List<Item> itemList, int floor)
+    public enum roomTypes
     {
-        int i;
-        int j;
-        System.Random gen = new System.Random();
-        int currentRoomCount = 0;
-        Room[,] array = new Room[ySize,xSize];
+        none,
+        empty,
+        upstairs,
+        downstairs,
+        fight,
+        trader,
+        loot
+    }
 
-        for(int fDim = 0; fDim < ySize; fDim++)
-            for(int sDim = 0; sDim < xSize; sDim++)
-                array[fDim, sDim] = new Room();
+    public class Room
+    {
+        public roomTypes content = roomTypes.none;
+        public bool[] connections = new bool[] { false, false, false, false };
+        public Enemy enemy;
+        //traderType
+        public bool explored = false;
+        public List<Item> loot = new List<Item>();
+    }
 
-        if (roomCount > xSize*ySize)
+    public static class Generator
+    {
+        public static Room[,] Generate(int xSize, int ySize, int roomCount, List<Enemy> enemyList, List<Item> itemList, int floor)
         {
-            Debug.Log("Cannot fit the number of roooms within the floor!");
-            return array;
-        }
-        while (currentRoomCount < roomCount)
-        {
-            for (i=0; i < ySize; i++)
+            int i;
+            int j;
+            System.Random gen = new System.Random();
+            int currentRoomCount = 0;
+            Room[,] array = new Room[ySize, xSize];
+
+            for (int fDim = 0; fDim < ySize; fDim++)
+                for (int sDim = 0; sDim < xSize; sDim++)
+                    array[fDim, sDim] = new Room();
+
+            if (roomCount > xSize * ySize)
             {
-                for (j=0; j < xSize; j++)
-                {                    
-                    if(!(currentRoomCount >= roomCount))
+                Debug.Log("Cannot fit the number of roooms within the floor!");
+                return array;
+            }
+            while (currentRoomCount < roomCount)
+            {
+                for (i = 0; i < ySize; i++)
+                {
+                    for (j = 0; j < xSize; j++)
                     {
-                        List<char> adjacentTesting = new List<char>(){'n','e','s','w'};
-                        bool found = false;
-                        
-                        if (array[i,j].content == roomTypes.none)
+                        if (!(currentRoomCount >= roomCount))
                         {
-                            if (i == 0 && j == 0)
+                            List<char> adjacentTesting = new List<char>() { 'n', 'e', 's', 'w' };
+                            bool found = false;
+
+                            if (array[i, j].content == roomTypes.none)
                             {
-                                array[i,j].content = roomTypes.empty;
-                                currentRoomCount++;
-                            }
-                            else
-                            {
-                                if (i != 0 && j != 0 && i != (ySize-1) && j != (xSize-1))
+                                if (i == 0 && j == 0)
                                 {
-                                    if (array[i,j-1].content != roomTypes.none || array[i-1,j].content != roomTypes.none || array[i,j+1].content != roomTypes.none || array[i+1,j].content != roomTypes.none)
-                                    {
-                                        if (gen.Next(100) < 50)
-                                        {
-                                            array[i,j].content = roomTypes.empty;
-                                            currentRoomCount++;
-                                        }
-                                    }
+                                    array[i, j].content = roomTypes.empty;
+                                    currentRoomCount++;
                                 }
                                 else
                                 {
-                                    if (i == 0)
+                                    if (i != 0 && j != 0 && i != (ySize - 1) && j != (xSize - 1))
                                     {
-                                        adjacentTesting.Remove('n');
-                                    }
-                                    if (j == 0)
-                                    {
-                                        adjacentTesting.Remove('w');
-                                    }
-                                    if (i == (ySize-1))
-                                    {
-                                        adjacentTesting.Remove('s');
-                                    }
-                                    if (j == (xSize-1))
-                                    {
-                                        adjacentTesting.Remove('e');
-                                    }
-
-                                    if (adjacentTesting.Contains('n'))
-                                    {
-                                        if (array[i-1,j].content != roomTypes.none && (gen.Next(100) < 50) && !found)
+                                        if (array[i, j - 1].content != roomTypes.none || array[i - 1, j].content != roomTypes.none || array[i, j + 1].content != roomTypes.none || array[i + 1, j].content != roomTypes.none)
                                         {
-                                            array[i,j].content = roomTypes.empty;
-                                            found = true;
-                                            currentRoomCount++;
+                                            if (gen.Next(100) < 50)
+                                            {
+                                                array[i, j].content = roomTypes.empty;
+                                                currentRoomCount++;
+                                            }
                                         }
                                     }
-
-                                    if (adjacentTesting.Contains('e'))
+                                    else
                                     {
-                                        if (array[i,j+1].content != roomTypes.none && (gen.Next(100) < 50) && !found)
+                                        if (i == 0)
                                         {
-                                            array[i,j].content = roomTypes.empty;
-                                            found = true;
-                                            currentRoomCount++;
+                                            adjacentTesting.Remove('n');
                                         }
-                                    }
-
-                                    if (adjacentTesting.Contains('s'))
-                                    {
-                                        if (array[i+1,j].content != roomTypes.none && (gen.Next(100) < 50) && !found)
+                                        if (j == 0)
                                         {
-                                            array[i,j].content = roomTypes.empty;
-                                            found = true;
-                                            currentRoomCount++;
+                                            adjacentTesting.Remove('w');
                                         }
-                                    }
-
-                                    if (adjacentTesting.Contains('w'))
-                                    {
-                                        if (array[i,j-1].content != roomTypes.none && (gen.Next(100) < 50) && !found)
+                                        if (i == (ySize - 1))
                                         {
-                                            array[i,j].content = roomTypes.empty;
-                                            found = true;
-                                            currentRoomCount++;
+                                            adjacentTesting.Remove('s');
+                                        }
+                                        if (j == (xSize - 1))
+                                        {
+                                            adjacentTesting.Remove('e');
+                                        }
+
+                                        if (adjacentTesting.Contains('n'))
+                                        {
+                                            if (array[i - 1, j].content != roomTypes.none && (gen.Next(100) < 50) && !found)
+                                            {
+                                                array[i, j].content = roomTypes.empty;
+                                                found = true;
+                                                currentRoomCount++;
+                                            }
+                                        }
+
+                                        if (adjacentTesting.Contains('e'))
+                                        {
+                                            if (array[i, j + 1].content != roomTypes.none && (gen.Next(100) < 50) && !found)
+                                            {
+                                                array[i, j].content = roomTypes.empty;
+                                                found = true;
+                                                currentRoomCount++;
+                                            }
+                                        }
+
+                                        if (adjacentTesting.Contains('s'))
+                                        {
+                                            if (array[i + 1, j].content != roomTypes.none && (gen.Next(100) < 50) && !found)
+                                            {
+                                                array[i, j].content = roomTypes.empty;
+                                                found = true;
+                                                currentRoomCount++;
+                                            }
+                                        }
+
+                                        if (adjacentTesting.Contains('w'))
+                                        {
+                                            if (array[i, j - 1].content != roomTypes.none && (gen.Next(100) < 50) && !found)
+                                            {
+                                                array[i, j].content = roomTypes.empty;
+                                                found = true;
+                                                currentRoomCount++;
+                                            }
                                         }
                                     }
                                 }
@@ -139,81 +143,80 @@ public static class Generator
                     }
                 }
             }
+            array = CreateConnections(array);
+            array = PopulateFloor(array, floor, enemyList, itemList);
+            return array;
         }
-        array = CreateConnections(array);
-        array = PopulateFloor(array, floor, enemyList, itemList);
-        return array;
-    }
 
-    public static Room[,] CreateConnections(Room[,] array)
-    {
-        for (int i = 0; i < array.GetLength(0); i++)
+        public static Room[,] CreateConnections(Room[,] array)
         {
-            for (int j = 0; j < array.GetLength(1); j++)
+            for (int i = 0; i < array.GetLength(0); i++)
             {
-                if (array[i,j].content == roomTypes.empty)
+                for (int j = 0; j < array.GetLength(1); j++)
                 {
-                    List<char> adjacentTesting = new List<char>(){'n','e','s','w'};
+                    if (array[i, j].content == roomTypes.empty)
+                    {
+                        List<char> adjacentTesting = new List<char>() { 'n', 'e', 's', 'w' };
 
-                    if (i == 0)
-                    {
-                        adjacentTesting.Remove('n');
-                    }
-                    if (j == 0)
-                    {
-                        adjacentTesting.Remove('w');
-                    }
-                    if (i == (array.GetLength(0)-1))
-                    {
-                        adjacentTesting.Remove('s');
-                    }
-                    if (j == (array.GetLength(1)-1))
-                    {
-                        adjacentTesting.Remove('e');
-                    }
-
-                    if (adjacentTesting.Contains('n'))
-                    {
-                        if (array[i-1,j].content != roomTypes.none)
+                        if (i == 0)
                         {
-                            array[i,j].connections[0] = true;
+                            adjacentTesting.Remove('n');
                         }
-                    }
-
-                    if (adjacentTesting.Contains('e'))
-                    {
-                        if (array[i,j+1].content != roomTypes.none)
+                        if (j == 0)
                         {
-                            array[i,j].connections[1] = true;
+                            adjacentTesting.Remove('w');
                         }
-                    }
-
-                    if (adjacentTesting.Contains('s'))
-                    {
-                        if (array[i+1,j].content != roomTypes.none)
+                        if (i == (array.GetLength(0) - 1))
                         {
-                            array[i,j].connections[2] = true;
+                            adjacentTesting.Remove('s');
                         }
-                    }
-
-                    if (adjacentTesting.Contains('w'))
-                    {
-                        if (array[i,j-1].content != roomTypes.none)
+                        if (j == (array.GetLength(1) - 1))
                         {
-                            array[i,j].connections[3] = true;
+                            adjacentTesting.Remove('e');
+                        }
+
+                        if (adjacentTesting.Contains('n'))
+                        {
+                            if (array[i - 1, j].content != roomTypes.none)
+                            {
+                                array[i, j].connections[0] = true;
+                            }
+                        }
+
+                        if (adjacentTesting.Contains('e'))
+                        {
+                            if (array[i, j + 1].content != roomTypes.none)
+                            {
+                                array[i, j].connections[1] = true;
+                            }
+                        }
+
+                        if (adjacentTesting.Contains('s'))
+                        {
+                            if (array[i + 1, j].content != roomTypes.none)
+                            {
+                                array[i, j].connections[2] = true;
+                            }
+                        }
+
+                        if (adjacentTesting.Contains('w'))
+                        {
+                            if (array[i, j - 1].content != roomTypes.none)
+                            {
+                                array[i, j].connections[3] = true;
+                            }
                         }
                     }
                 }
             }
+            return array;
         }
-        return array;
-    }
 
-    public static Room[,] PopulateFloor(Room[,] array, int floor,  List<Enemy> enemyList, List<Item> itemList)
-    {
-        System.Random gen = new System.Random();
+        public static Room[,] PopulateFloor(Room[,] array, int floor, List<Enemy> enemyList, List<Item> itemList)
+        {
+            System.Random gen = new System.Random();
 
-        Dictionary<roomTypes, int> types = new Dictionary<roomTypes, int>()
+            Dictionary<roomTypes, int> types = new Dictionary<roomTypes, int>()
         {
             {roomTypes.upstairs, 1},
             {roomTypes.downstairs,1},
@@ -222,149 +225,151 @@ public static class Generator
             {roomTypes.trader,1}
         };
 
-        int difficulty = floor / 10 + 1;
+            int difficulty = floor / 10 + 1;
 
-        foreach (roomTypes key in types.Keys.ToArray())
-        {
-            if (key != roomTypes.upstairs && key != roomTypes.downstairs && difficulty != 1)
+            foreach (roomTypes key in types.Keys.ToArray())
             {
-                types[key] *= difficulty;
-            }
-        }
-        for (int i = 0; i < array.GetLength(0); i++)
-        {
-            for (int j = 0; j < array.GetLength(1); j++)
-            {
-                if (i == 0 && j == 0)
+                if (key != roomTypes.upstairs && key != roomTypes.downstairs && difficulty != 1)
                 {
-                    array[i, j].content = roomTypes.upstairs;
-                    types.Remove(roomTypes.upstairs);
+                    types[key] *= difficulty;
                 }
-                else
+            }
+            for (int i = 0; i < array.GetLength(0); i++)
+            {
+                for (int j = 0; j < array.GetLength(1); j++)
                 {
-                    if (array[i,j].content != roomTypes.none)
+                    if (i == 0 && j == 0)
                     {
-                        int randomInt = gen.Next(types.Keys.ToArray().GetLength(0));
-                        roomTypes content = types.Keys.ToArray()[randomInt];
-                        array[i, j].content = content;
-                        types[content]--;
+                        array[i, j].content = roomTypes.upstairs;
+                        types.Remove(roomTypes.upstairs);
+                    }
+                    else
+                    {
+                        if (array[i, j].content != roomTypes.none)
+                        {
+                            int randomInt = gen.Next(types.Keys.ToArray().GetLength(0));
+                            roomTypes content = types.Keys.ToArray()[randomInt];
+                            array[i, j].content = content;
+                            types[content]--;
 
-                        foreach (roomTypes type in types.Keys.ToArray())
-                        {
-                            if (types[type] == 0)
+                            foreach (roomTypes type in types.Keys.ToArray())
                             {
-                                types.Remove(type);
-                            }
-                        }
-                        if (array[i,j].content == roomTypes.fight)
-                        {
-                            List<Enemy> _eligibleEnemies = new List<Enemy>();
-                            foreach (Enemy _enemy in enemyList)
-                            {
-                                if (floor+1 >= _enemy.level[0] && floor+1 <= _enemy.level[1])
+                                if (types[type] == 0)
                                 {
-                                    _eligibleEnemies.Add(_enemy);
+                                    types.Remove(type);
                                 }
                             }
-                            if (_eligibleEnemies.Count == 0)
+                            if (array[i, j].content == roomTypes.fight)
                             {
-                                _eligibleEnemies = enemyList;
-                            }
-                            array[i, j].enemy = _eligibleEnemies[gen.Next(_eligibleEnemies.Count)];
-                        }
-                        else if (array[i, j].content == roomTypes.loot)
-                        {
-                            List<Item> _eligibleFood = new List<Item>();
-                            List<Item> _eligibleWeapon = new List<Item>();
-
-                            int _foodQuality = gen.Next(1, 4); //need choice weights
-
-                            foreach (Item _item in itemList)
-                            {
-                                if (difficulty == _item.level && _foodQuality == _item.quality && _item.type == itemType.Food) //add food blacklist
+                                List<Enemy> _eligibleEnemies = new List<Enemy>();
+                                foreach (Enemy _enemy in enemyList)
                                 {
-                                    _eligibleFood.Add(_item);
+                                    if (floor + 1 >= _enemy.level[0] && floor + 1 <= _enemy.level[1])
+                                    {
+                                        _eligibleEnemies.Add(_enemy);
+                                    }
                                 }
+                                if (_eligibleEnemies.Count == 0)
+                                {
+                                    _eligibleEnemies = enemyList;
+                                }
+                                array[i, j].enemy = _eligibleEnemies[gen.Next(_eligibleEnemies.Count)];
                             }
-                            if (_eligibleFood.Count == 0)
+                            else if (array[i, j].content == roomTypes.loot)
                             {
+                                List<Item> _eligibleFood = new List<Item>();
+                                List<Item> _eligibleWeapon = new List<Item>();
+
+                                int _foodQuality = gen.Next(1, 4); //need choice weights
+
                                 foreach (Item _item in itemList)
                                 {
-                                    if (_item.type == itemType.Food)
+                                    if (difficulty == _item.level && _foodQuality == _item.quality && _item.type == itemType.Food) //add food blacklist
                                     {
                                         _eligibleFood.Add(_item);
                                     }
                                 }
-                            }
-
-                            if (gen.Next(1,3) == 1)
-                            {
-                                int _weaponQuality = gen.Next(1, 4); //need choice weights
-
-                                foreach (Item _item in itemList)
-                                {
-                                    if (difficulty == _item.level && _foodQuality == _item.quality && _item.type == itemType.Weapon) //add weapon blacklist
-                                    {
-                                        _eligibleWeapon.Add(_item);
-                                    }
-                                }
-                                if (_eligibleWeapon.Count == 0)
+                                if (_eligibleFood.Count == 0)
                                 {
                                     foreach (Item _item in itemList)
                                     {
-                                        if (_item.type == itemType.Weapon)
+                                        if (_item.type == itemType.Food)
+                                        {
+                                            _eligibleFood.Add(_item);
+                                        }
+                                    }
+                                }
+
+                                if (gen.Next(1, 3) == 1)
+                                {
+                                    int _weaponQuality = gen.Next(1, 4); //need choice weights
+
+                                    foreach (Item _item in itemList)
+                                    {
+                                        if (difficulty == _item.level && _foodQuality == _item.quality && _item.type == itemType.Weapon) //add weapon blacklist
                                         {
                                             _eligibleWeapon.Add(_item);
                                         }
                                     }
+                                    if (_eligibleWeapon.Count == 0)
+                                    {
+                                        foreach (Item _item in itemList)
+                                        {
+                                            if (_item.type == itemType.Weapon)
+                                            {
+                                                _eligibleWeapon.Add(_item);
+                                            }
+                                        }
+                                    }
                                 }
-                            }
 
-                            if (_eligibleWeapon.Count != 0)
-                            {
-                                array[i, j].loot.Add(_eligibleFood[gen.Next(_eligibleFood.Count)]);
-                                array[i, j].loot.Add(_eligibleWeapon[gen.Next(_eligibleWeapon.Count)]);
-                            }
-                            else
-                            {
-                                array[i, j].loot.Add(_eligibleFood[gen.Next(_eligibleFood.Count)]);
+                                if (_eligibleWeapon.Count != 0)
+                                {
+                                    array[i, j].loot.Add(_eligibleFood[gen.Next(_eligibleFood.Count)]);
+                                    array[i, j].loot.Add(_eligibleWeapon[gen.Next(_eligibleWeapon.Count)]);
+                                }
+                                else
+                                {
+                                    array[i, j].loot.Add(_eligibleFood[gen.Next(_eligibleFood.Count)]);
+                                }
                             }
                         }
                     }
                 }
             }
-        }
-        return array;
-    }
-
-    public static void writeFloorToFile(Room[,] floor)
-    {
-        string fileName = "C:\\Users\\bryan\\floor.txt";
-        string row = "";
-
-        if (File.Exists(fileName))
-        {
-            File.Delete(fileName);
+            return array;
         }
 
-        StreamWriter sr = File.CreateText(fileName);
-        for (int i = 0; i < floor.GetLength(0); i++)
+        public static void writeFloorToFile(Room[,] floor)
         {
-            for (int j = 0; j < floor.GetLength(1); j++)
+            string fileName = "C:\\Users\\bryan\\floor.txt";
+            string row = "";
+
+            if (File.Exists(fileName))
             {
-                row += floor[i,j].content.ToString() + ", ";
+                File.Delete(fileName);
             }
-            sr.WriteLine(row);
-            row = "";
+
+            StreamWriter sr = File.CreateText(fileName);
+            for (int i = 0; i < floor.GetLength(0); i++)
+            {
+                for (int j = 0; j < floor.GetLength(1); j++)
+                {
+                    row += floor[i, j].content.ToString() + ", ";
+                }
+                sr.WriteLine(row);
+                row = "";
+            }
+            sr.Close();
         }
-        sr.Close();
+
+        public static int[] FindFloorSize(int a, int d, int e) //find the factors, b and c, of a, in the ratio d and e
+        {
+            int b = (int)Mathf.Round(d * Mathf.Sqrt(a / (d * e)));
+            int c = (int)Mathf.Round(e * Mathf.Sqrt(a / (d * e)));
+            int[] _array = { b, c };
+            return _array;
+        }
     }
 
-    public static int[] FindFloorSize(int a, int d, int e) //find the factors, b and c, of a, in the ratio d and e
-    {
-        int b = (int)Mathf.Round(d * Mathf.Sqrt(a / (d * e)));
-        int c = (int)Mathf.Round(e * Mathf.Sqrt(a / (d * e)));
-        int[] _array = { b, c };
-        return _array;
-    }
 }

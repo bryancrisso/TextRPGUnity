@@ -1,71 +1,72 @@
-using System.Collections;
+using Newtonsoft.Json;
 using System.Collections.Generic;
-using UnityEngine;
-using Path = System.IO.Path;
 using System.IO;
 using System.Linq;
-using Newtonsoft.Json;
+using UnityEngine;
 
-public enum EnemyType
+namespace BattleBar
 {
-    Enemy,
-    Dummy,
-    Ranged
-}
-
-public class Enemies : MonoBehaviour
-{
-    public List<Enemy> enemyList = new List<Enemy>();
-
-    private void Start()
+    public enum EnemyType
     {
-        if (!Directory.GetFiles(".").Contains(".\\enemies.json"))
-        {
-            File.Create(".\\enemies.json").Dispose();
-        }
-
-        string json = System.IO.File.ReadAllText(".\\enemies.json");
-        enemyList = JsonConvert.DeserializeObject<List<Enemy>>(json);
+        Enemy,
+        Dummy,
+        Ranged
     }
 
-    public Enemy getEnemyByID(int id)
+    public class Enemies : MonoBehaviour
     {
-        Enemy returnEnemy = null;
-        foreach (Enemy enemy in enemyList)
+        public List<Enemy> enemyList = new List<Enemy>();
+
+        private void Start()
         {
-            if (enemy.id == id)
+            if (!Directory.GetFiles(".").Contains(".\\enemies.json"))
             {
-                returnEnemy = enemy;
-                break;
+                File.Create(".\\enemies.json").Dispose();
             }
+
+            string json = System.IO.File.ReadAllText(".\\enemies.json");
+            enemyList = JsonConvert.DeserializeObject<List<Enemy>>(json);
         }
-        return returnEnemy;
+
+        public Enemy getEnemyByID(int id)
+        {
+            Enemy returnEnemy = null;
+            foreach (Enemy enemy in enemyList)
+            {
+                if (enemy.id == id)
+                {
+                    returnEnemy = enemy;
+                    break;
+                }
+            }
+            return returnEnemy;
+        }
     }
-}
 
-public class Enemy
-{
-    public string name;
-
-    public EnemyType type = EnemyType.Enemy;
-
-    public int maxHealth;
-    public int currentHealth;
-    public int[] damage = { 0, 0 };
-    public int[] level = { 0, 0 };
-    public int[] gold = { 0, 0 };
-    public int id;
-
-    public void init(Enemy correspondingEnemy)
+    public class Enemy
     {
-        name = correspondingEnemy.name;
-        type = correspondingEnemy.type;
-        maxHealth = correspondingEnemy.maxHealth;
-        damage = correspondingEnemy.damage;
-        level = correspondingEnemy.level;
-        gold = correspondingEnemy.gold;
-        id = correspondingEnemy.id;
+        public string name;
 
-        currentHealth = maxHealth;
+        public EnemyType type = EnemyType.Enemy;
+
+        public int maxHealth;
+        public int currentHealth;
+        public int[] damage = { 0, 0 };
+        public int[] level = { 0, 0 };
+        public int[] gold = { 0, 0 };
+        public int id;
+
+        public void init(Enemy correspondingEnemy)
+        {
+            name = correspondingEnemy.name;
+            type = correspondingEnemy.type;
+            maxHealth = correspondingEnemy.maxHealth;
+            damage = correspondingEnemy.damage;
+            level = correspondingEnemy.level;
+            gold = correspondingEnemy.gold;
+            id = correspondingEnemy.id;
+
+            currentHealth = maxHealth;
+        }
     }
 }

@@ -4,23 +4,28 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-public class StatManager : MonoBehaviour
+namespace BattleBar
 {
-    public Player player;
 
-    //UI Variables
-    public TextMeshProUGUI healthText;
-    public Slider healthSlider;
-    public TextMeshProUGUI goldText;
-    public InventorySlot currentWeapon;
-
-    public void updateStats()
+    public class StatManager : MonoBehaviour
     {
-        healthText.text = player.currentHealth.ToString() + "/" + player.maxHealth.ToString();
-        healthSlider.value = player.currentHealth;
-        healthSlider.maxValue = player.maxHealth;
-        goldText.text = player.gold.ToString();
-        currentWeapon.index = player.inventory.IndexOf(player.currentWeapon);
-        currentWeapon.updateData();
+        public Player player;
+
+        //UI Variables
+        public TextMeshProUGUI healthText;
+        public Slider healthSlider;
+        public TextMeshProUGUI goldText;
+        public InventorySlot currentWeapon;
+
+        public void updateStats()
+        {
+            healthText.text = player.currentHealth.ToString() + "/" + player.maxHealth.ToString();
+            healthSlider.value = player.currentHealth;
+            healthSlider.maxValue = player.maxHealth;
+            goldText.text = player.gold.ToString();
+            currentWeapon.index = player.inventory.IndexOf(player.currentWeapon);
+            currentWeapon.updateData();
+        }
     }
+
 }

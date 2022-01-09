@@ -3,9 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class TextureManager : MonoBehaviour
+namespace BattleBar
 {
-    public Sprite[] textures;
-    public Sprite[] enemyTextures;
-    public Sprite nullTexture;
+    public class TextureManager : MonoBehaviour
+    {
+        public Sprite[] textures;
+        public Sprite[] enemyTextures;
+        public Sprite nullTexture;
+    }
+
 }

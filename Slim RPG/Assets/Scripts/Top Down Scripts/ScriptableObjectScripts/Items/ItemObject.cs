@@ -15,6 +15,7 @@ namespace TopDown
         public GameObject prefab;
         public ItemType type;
         public string displayName;
+        public Sprite displayImage;
         [TextArea(15,20)]
         public string description;
 

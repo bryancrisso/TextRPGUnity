@@ -5,6 +5,8 @@ namespace TopDown
 {
     public class WeaponUIInventorySlot : UIInventorySlot
     {
+        public GameObject functionButtons;
+
         // Start is called before the first frame update
         void Start()
         {

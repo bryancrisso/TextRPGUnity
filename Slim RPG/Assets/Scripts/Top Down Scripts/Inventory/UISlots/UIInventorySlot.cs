@@ -8,15 +8,15 @@ namespace TopDown
     public class UIInventorySlot : MonoBehaviour
     {
         public int index;
-        public GameObject functionButtons;
+        //public GameObject functionButtons;
 
         //UI variables
         public TextMeshProUGUI name;
-        //tyoe
+        //type
         //cost
         //damage
         //durability
-        //amount
+        public TextMeshProUGUI amount;
         //quality
         //icon
         //function button

@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
+using UnityEngine.InputSystem;
 
 namespace TopDown
 {
@@ -17,6 +19,8 @@ namespace TopDown
 
         Vector2 previousMovement;
 
+        public TextMeshProUGUI movetext;
+
         public PlayerWeapon weaponScript;
 
         private void Start()
@@ -24,18 +28,19 @@ namespace TopDown
             moveSpeed = baseSpeed;
         }
 
+        public void OnMove(InputAction.CallbackContext context)
+        {
+            movement = context.ReadValue<Vector2>();
+        }
+
         // Update is called once per frame
         void Update()
         {
-            // Input
-            movement.x = Input.GetAxisRaw("Horizontal");
-            movement.y = Input.GetAxisRaw("Vertical");
-
             animator.SetFloat("Horizontal", movement.x);
             animator.SetFloat("Vertical", movement.y);
-            animator.SetFloat("Speed", movement.sqrMagnitude);
+            animator.SetFloat("Speed", Vector2.ClampMagnitude(movement, 1).magnitude);
 
-            if (movement.sqrMagnitude > 0.01 && !weaponScript.isAttacking)
+            if (movement.sqrMagnitude > 0 && !weaponScript.isAttacking)
             {
                 previousMovement = movement;
                 animator.SetFloat("PHorizontal", previousMovement.x);
@@ -49,12 +54,13 @@ namespace TopDown
             {
                 moveSpeed = baseSpeed;
             }
+            movetext.text = movement.x +" "+ movement.y;
         }
 
         void FixedUpdate()
         {
             // Movement
-            rb.MovePosition(rb.position + movement.normalized * moveSpeed * Time.fixedDeltaTime);
+            rb.MovePosition(rb.position + Vector2.ClampMagnitude(movement,1) * moveSpeed * Time.fixedDeltaTime);
         }
     }
 }

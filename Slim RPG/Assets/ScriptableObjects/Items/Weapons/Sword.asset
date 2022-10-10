@@ -15,12 +15,13 @@ MonoBehaviour:
   prefab: {fileID: 6962296892703756622, guid: 408d0c79448be0a4fb5ee370b7fbc2ba, type: 3}
   type: 1
   displayName: Sword
+  displayImage: {fileID: 21300000, guid: 61f5fe1aabbea5644a619ec2cef148a7, type: 3}
   description: A basic weapon. Simple, yet effective.
   cost: 0
   isStackable: 0
   level: 0
   quality: 0
-  id: 0
+  id: 1
   attackCombos:
   - damage: 20
     attackInterval: 0.2

@@ -13,6 +13,7 @@ namespace TopDown
     public abstract class ItemObject : ScriptableObject
     {
         public GameObject prefab;
+        public GameObject pickup;
         public ItemType type;
         public string displayName;
         public Sprite displayImage;

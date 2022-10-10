@@ -1,10 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 namespace TopDown
 {
     public class PlayerWeapon : MonoBehaviour
     {
+        public PlayerInput controls;
+        private Vector2 gamepadLookDirection;
+
         public WeaponScript equippedWeapon;
 
         private float currentAttackDelay;
@@ -12,6 +16,7 @@ namespace TopDown
         public Animator animator;
 
         public bool isAttacking;
+        private bool isFiring = false;
 
         private int attackComboIndex = 0;
         private float currentComboDelay;
@@ -37,7 +42,7 @@ namespace TopDown
                 currentComboDelay -= Time.deltaTime;
             }
 
-            if (Input.GetButton("Fire1"))
+            if (isFiring)
             {
                 if (currentAttackDelay <= 0)
                 {
@@ -57,14 +62,42 @@ namespace TopDown
 
             if (!isAttacking)
             {
-                //look at cursor
-                Vector3 WorldPoint = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                if (controls.currentControlScheme == "Keyboard&Mouse")
+                {
+                    //look at cursor
+                    Vector3 WorldPoint = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());
 
-                Vector3 Difference = WorldPoint - transform.position;
-                Difference.Normalize();
+                    Vector3 Difference = WorldPoint - transform.position;
+                    Difference.Normalize();
 
-                float RotationZ = Mathf.Atan2(Difference.y, Difference.x) * Mathf.Rad2Deg;
-                transform.rotation = Quaternion.Euler(0f, 0f, RotationZ);
+                    float RotationZ = Mathf.Atan2(Difference.y, Difference.x) * Mathf.Rad2Deg;
+                    transform.rotation = Quaternion.Euler(0f, 0f, RotationZ);
+                }
+                else if (controls.currentControlScheme == "Gamepad")
+                {
+                    float RotationZ = Mathf.Atan2(gamepadLookDirection.y, gamepadLookDirection.x) * Mathf.Rad2Deg;
+                    transform.rotation = Quaternion.Euler(0f, 0f, RotationZ);
+                }
+            }
+        }
+
+        public void Look(InputAction.CallbackContext context)
+        {
+            if (context.ReadValue<Vector2>().sqrMagnitude != 0)
+            {
+                gamepadLookDirection = context.ReadValue<Vector2>();
+            }
+        }
+
+        public void Fire(InputAction.CallbackContext context)
+        {
+            if (context.performed)
+            {
+                isFiring = true;
+            }
+            if (context.canceled)
+            {
+                isFiring = false;
             }
         }
 

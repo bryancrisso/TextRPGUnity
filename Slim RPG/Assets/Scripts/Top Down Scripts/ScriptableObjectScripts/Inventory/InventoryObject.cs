@@ -1,13 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace TopDown
 {
     [CreateAssetMenu(fileName = "New Inventory", menuName = "InventorySystem/Inventory")]
     public class InventoryObject : ScriptableObject
     {
-        public List<InventorySlot> Container = new List<InventorySlot>();
+        [SerializeField]
+        private List<InventorySlot> Container = new List<InventorySlot>();
+
+        public bool isEmpty()
+        {
+            return Container.Count == 0;
+        }
 
         public void AddItem(ItemObject _item, int _amount)
         {
@@ -25,6 +32,28 @@ namespace TopDown
             {
                 Container.Add(new InventorySlot(_item, _amount));
             }
+        }
+
+        public void RemoveItem(int index, int amount)
+        {
+            if (index < Container.Count)
+            {
+                Container[index].amount -= amount;
+                if (Container[index].amount <= 0)
+                {
+                    Container.RemoveAt(index);
+                }
+            }
+        }
+
+        public InventorySlot getItem(int index)
+        {
+            return Container[index];
+        }
+
+        public int Size()
+        {
+            return Container.Count;
         }
     }
 

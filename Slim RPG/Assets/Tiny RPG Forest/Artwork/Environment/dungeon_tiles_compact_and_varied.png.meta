@@ -357,6 +357,7 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -2764,6 +2765,118 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      dungeon_tiles_compact_and_varied_28: 2447375362788483929
+      dungeon_tiles_compact_and_varied_96: 2972727359154464088
+      dungeon_tiles_compact_and_varied_95: -476584222093389314
+      dungeon_tiles_compact_and_varied_29: -8133140648743856268
+      dungeon_tiles_compact_and_varied_79: 7231271298681375945
+      dungeon_tiles_compact_and_varied_6: -3189931847609899154
+      dungeon_tiles_compact_and_varied_81: -3482097392354234915
+      dungeon_tiles_compact_and_varied_18: -7200352230747508242
+      dungeon_tiles_compact_and_varied_24: -1719825927965401687
+      dungeon_tiles_compact_and_varied_19: -8431432167974326783
+      dungeon_tiles_compact_and_varied_26: 5501479508375564858
+      dungeon_tiles_compact_and_varied_48: 6332598600891313267
+      dungeon_tiles_compact_and_varied_115: 1991311031986042663
+      dungeon_tiles_compact_and_varied_49: 6518076041048299308
+      dungeon_tiles_compact_and_varied_52: -3326776769847548682
+      dungeon_tiles_compact_and_varied_17: 1171301834417675431
+      dungeon_tiles_compact_and_varied_39: 4994609171301501639
+      dungeon_tiles_compact_and_varied_10: 6910601167682255632
+      dungeon_tiles_compact_and_varied_105: 5113711691854950073
+      dungeon_tiles_compact_and_varied_43: -6346570179608890454
+      dungeon_tiles_compact_and_varied_61: -4545688587722631217
+      dungeon_tiles_compact_and_varied_0: -3916524262950051998
+      dungeon_tiles_compact_and_varied_33: 6669909138773429844
+      dungeon_tiles_compact_and_varied_77: 6670222500281032403
+      dungeon_tiles_compact_and_varied_38: -1958737805123562731
+      dungeon_tiles_compact_and_varied_92: -575333587485086949
+      dungeon_tiles_compact_and_varied_14: 3669354290723341270
+      dungeon_tiles_compact_and_varied_32: -7656558431352235947
+      dungeon_tiles_compact_and_varied_111: -3239605766351788246
+      dungeon_tiles_compact_and_varied_11: -5426327230831124184
+      dungeon_tiles_compact_and_varied_74: 1344672195135716147
+      dungeon_tiles_compact_and_varied_84: -3295457027436648834
+      dungeon_tiles_compact_and_varied_67: -798752989824889871
+      dungeon_tiles_compact_and_varied_89: -610600904550382456
+      dungeon_tiles_compact_and_varied_4: -1372594991553988036
+      dungeon_tiles_compact_and_varied_25: -7233558951362442431
+      dungeon_tiles_compact_and_varied_55: -4227100256281157811
+      dungeon_tiles_compact_and_varied_73: 9011276680280857968
+      dungeon_tiles_compact_and_varied_82: 3004229065177714562
+      dungeon_tiles_compact_and_varied_93: -8171798973459197293
+      dungeon_tiles_compact_and_varied_58: -1761839133621008623
+      dungeon_tiles_compact_and_varied_108: -5790082532500950569
+      dungeon_tiles_compact_and_varied_20: -8806637972917893073
+      dungeon_tiles_compact_and_varied_56: -6823682994760480950
+      dungeon_tiles_compact_and_varied_103: -2011377707106634993
+      dungeon_tiles_compact_and_varied_41: 8874171782258400424
+      dungeon_tiles_compact_and_varied_87: -5101493148547915538
+      dungeon_tiles_compact_and_varied_107: 856254212773622163
+      dungeon_tiles_compact_and_varied_13: -9061807527656958618
+      dungeon_tiles_compact_and_varied_45: 4127234447194298455
+      dungeon_tiles_compact_and_varied_53: -8876879092220669193
+      dungeon_tiles_compact_and_varied_65: 2928056045365718958
+      dungeon_tiles_compact_and_varied_47: 9079199350131630102
+      dungeon_tiles_compact_and_varied_75: -8006511099371236619
+      dungeon_tiles_compact_and_varied_59: 5531310123239217843
+      dungeon_tiles_compact_and_varied_15: 3918147441817454732
+      dungeon_tiles_compact_and_varied_30: 4972812791643405380
+      dungeon_tiles_compact_and_varied_7: -5547423272092782045
+      dungeon_tiles_compact_and_varied_101: 8360860238629134244
+      dungeon_tiles_compact_and_varied_31: 1291243359643882780
+      dungeon_tiles_compact_and_varied_44: 5074448655846246055
+      dungeon_tiles_compact_and_varied_51: -1777057887793973380
+      dungeon_tiles_compact_and_varied_5: 2649288764738554061
+      dungeon_tiles_compact_and_varied_97: 2664200601225539217
+      dungeon_tiles_compact_and_varied_36: 2265623367293656704
+      dungeon_tiles_compact_and_varied_83: 212695169478585203
+      dungeon_tiles_compact_and_varied_35: 476025135880114966
+      dungeon_tiles_compact_and_varied_62: -6532800972874880084
+      dungeon_tiles_compact_and_varied_27: -7315847439581585623
+      dungeon_tiles_compact_and_varied_57: 4728419958072872161
+      dungeon_tiles_compact_and_varied_22: 3208850842895413447
+      dungeon_tiles_compact_and_varied_76: -6353346388998945600
+      dungeon_tiles_compact_and_varied_34: 5556229599806574141
+      dungeon_tiles_compact_and_varied_1: -3452866223516920972
+      dungeon_tiles_compact_and_varied_113: -1992289473009764142
+      dungeon_tiles_compact_and_varied_102: -8483386347861659447
+      dungeon_tiles_compact_and_varied_21: 8186846153465918154
+      dungeon_tiles_compact_and_varied_9: 2696706238751941688
+      dungeon_tiles_compact_and_varied_8: -1892559573206757088
+      dungeon_tiles_compact_and_varied_78: 4135060053472818814
+      dungeon_tiles_compact_and_varied_42: 8753513885411931966
+      dungeon_tiles_compact_and_varied_90: 1601528624748540673
+      dungeon_tiles_compact_and_varied_12: -202443178971675062
+      dungeon_tiles_compact_and_varied_69: 2224242070896664294
+      dungeon_tiles_compact_and_varied_2: 8891470531515266642
+      dungeon_tiles_compact_and_varied_104: -2688247504775950210
+      dungeon_tiles_compact_and_varied_64: -4746456357137390776
+      dungeon_tiles_compact_and_varied_72: 441637488547783059
+      dungeon_tiles_compact_and_varied_40: 8614473033325485128
+      dungeon_tiles_compact_and_varied_80: 3817134643634959541
+      dungeon_tiles_compact_and_varied_60: -7471758518298025438
+      dungeon_tiles_compact_and_varied_109: -8427433720283257904
+      dungeon_tiles_compact_and_varied_91: 4108041637742530611
+      dungeon_tiles_compact_and_varied_85: -4512022406582647180
+      dungeon_tiles_compact_and_varied_70: -7548369809652249264
+      dungeon_tiles_compact_and_varied_46: 2957756614931822763
+      dungeon_tiles_compact_and_varied_88: -5043202641918813996
+      dungeon_tiles_compact_and_varied_63: -7061329806511028764
+      dungeon_tiles_compact_and_varied_98: 4533841468770852712
+      dungeon_tiles_compact_and_varied_86: -7875507970361814373
+      dungeon_tiles_compact_and_varied_50: 6938538261315679481
+      dungeon_tiles_compact_and_varied_3: -8267669460261235811
+      dungeon_tiles_compact_and_varied_66: 8913723727111456481
+      dungeon_tiles_compact_and_varied_68: 8944124275063169774
+      dungeon_tiles_compact_and_varied_54: 6180609031293124751
+      dungeon_tiles_compact_and_varied_94: 2607170880298700030
+      dungeon_tiles_compact_and_varied_23: -2591440465991398433
+      dungeon_tiles_compact_and_varied_37: 3972250407311823602
+      dungeon_tiles_compact_and_varied_16: -4733238049091254788
+      dungeon_tiles_compact_and_varied_71: -955292348159409848
+      dungeon_tiles_compact_and_varied_99: -7323594749489665473
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

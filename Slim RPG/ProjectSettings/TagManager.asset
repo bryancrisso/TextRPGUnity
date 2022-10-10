@@ -9,6 +9,8 @@ TagManager:
   - WeaponTrigger
   - EnemyTrigger
   - Enemy
+  - Pickup
+  - Interactable
   layers:
   - Default
   - TransparentFX

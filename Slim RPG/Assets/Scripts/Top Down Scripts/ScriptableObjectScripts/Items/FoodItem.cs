@@ -7,7 +7,7 @@ namespace TopDown
     [CreateAssetMenu(fileName = "New Food Item", menuName = "InventorySystem/Items/Food")]
     public class FoodItem : ItemObject
     {
-        public int healthRegen;
+        public float healthRegen;
 
         public void Awake()
         {

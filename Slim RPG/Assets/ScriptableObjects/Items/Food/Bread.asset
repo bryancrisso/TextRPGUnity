@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 619146cdf8b103c44b48c0d7088b96c1, type: 3}
+  m_Name: Bread
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 7168143415973348419, guid: 672ed55a896d8c446b73c5ce7ed4494f, type: 3}
+  pickup: {fileID: 7168143415973348419, guid: 0c9bdef2507ca5b4e918e75d52ac228f, type: 3}
+  type: 0
+  displayName: Bread
+  displayImage: {fileID: 21300000, guid: 2afd6eff2d0cb1240aec221989bde23b, type: 3}
+  description: Warm and soft bread. Reminds you of home.
+  cost: 0
+  isStackable: 0
+  level: 0
+  quality: 0
+  id: 0
+  healthRegen: 25

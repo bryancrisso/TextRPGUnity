@@ -318,6 +318,7 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -2452,6 +2453,105 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      dungeon_tiles_water_66: 600004904818189174
+      dungeon_tiles_water_9: 1958053322927446655
+      dungeon_tiles_water_19: -3889561992355911435
+      dungeon_tiles_water_83: -4935351723738254757
+      dungeon_tiles_water_62: -3504929173341452037
+      dungeon_tiles_water_57: 2979565000885019721
+      dungeon_tiles_water_63: -8246329888428102254
+      dungeon_tiles_water_42: 2098442473640327671
+      dungeon_tiles_water_71: 5335640726724015643
+      dungeon_tiles_water_74: -1036139729917310287
+      dungeon_tiles_water_21: 681018678177903633
+      dungeon_tiles_water_76: 4275358697425474661
+      dungeon_tiles_water_29: -5255682733558548907
+      dungeon_tiles_water_4: 3825320197237422725
+      dungeon_tiles_water_89: -3641428985020591580
+      dungeon_tiles_water_56: 5123228170472212738
+      dungeon_tiles_water_69: -6778869295322255642
+      dungeon_tiles_water_86: -7798484753751432912
+      dungeon_tiles_water_2: -1735862522772657870
+      dungeon_tiles_water_72: -4856489406120432200
+      dungeon_tiles_water_32: 5548170722959231775
+      dungeon_tiles_water_73: -101258967085546114
+      dungeon_tiles_water_92: -1194538054900638355
+      dungeon_tiles_water_93: 3981154830213244449
+      dungeon_tiles_water_94: 8560007273878190468
+      dungeon_tiles_water_64: -4961699866395229286
+      dungeon_tiles_water_65: -4183992314572639652
+      dungeon_tiles_water_0: 4469989797319666649
+      dungeon_tiles_water_67: 6729701805912694906
+      dungeon_tiles_water_96: 4004296293737273408
+      dungeon_tiles_water_35: 9162465919576257066
+      dungeon_tiles_water_8: -5782199573395415967
+      dungeon_tiles_water_37: 6671322806698393086
+      dungeon_tiles_water_77: 893250537290052304
+      dungeon_tiles_water_16: -6720000292217312270
+      dungeon_tiles_water_34: 470197945336493562
+      dungeon_tiles_water_45: -2160665668152229547
+      dungeon_tiles_water_5: -897341240769670505
+      dungeon_tiles_water_80: 6577289283225800951
+      dungeon_tiles_water_97: -1987971582040660707
+      dungeon_tiles_water_36: 2740980987181138202
+      dungeon_tiles_water_79: -2840693265729553119
+      dungeon_tiles_water_27: -772762904799154228
+      dungeon_tiles_water_55: 1456123400855266198
+      dungeon_tiles_water_84: -7040708954768925342
+      dungeon_tiles_water_75: -4957770217039603748
+      dungeon_tiles_water_10: 6757760954405669074
+      dungeon_tiles_water_12: -6153648688937255532
+      dungeon_tiles_water_14: 5255599027989714716
+      dungeon_tiles_water_26: 916961921559372349
+      dungeon_tiles_water_22: 7549043580050136205
+      dungeon_tiles_water_46: 5227374917551992706
+      dungeon_tiles_water_15: -23630984765310926
+      dungeon_tiles_water_52: 450490457296613817
+      dungeon_tiles_water_20: 4086078833383727603
+      dungeon_tiles_water_44: 869202190698137779
+      dungeon_tiles_water_40: 256617510376987277
+      dungeon_tiles_water_60: 2972274159153968523
+      dungeon_tiles_water_61: 8993242415462407891
+      dungeon_tiles_water_33: 2273959532269725934
+      dungeon_tiles_water_68: -6473632843637449952
+      dungeon_tiles_water_41: -1140124231455570116
+      dungeon_tiles_water_90: -7181996244389808742
+      dungeon_tiles_water_25: -5571113485350302381
+      dungeon_tiles_water_24: -4414047254654668522
+      dungeon_tiles_water_59: -6366888427450828993
+      dungeon_tiles_water_91: 3478124418158315977
+      dungeon_tiles_water_49: 7231456154458013158
+      dungeon_tiles_water_50: 410136870025915838
+      dungeon_tiles_water_87: -6796309032457590030
+      dungeon_tiles_water_39: -3585968606966723895
+      dungeon_tiles_water_95: 6534909309109387655
+      dungeon_tiles_water_53: 889782882138894930
+      dungeon_tiles_water_48: -6915139680870947678
+      dungeon_tiles_water_43: 226462082797927032
+      dungeon_tiles_water_17: 6595163856649648448
+      dungeon_tiles_water_18: -8070269767037705782
+      dungeon_tiles_water_3: 6097991946828392372
+      dungeon_tiles_water_6: 8579489121309349329
+      dungeon_tiles_water_11: -9040347601519052508
+      dungeon_tiles_water_38: -741364337643049121
+      dungeon_tiles_water_51: -7108047165236772886
+      dungeon_tiles_water_13: -3311664145730630059
+      dungeon_tiles_water_28: 7613261228256042221
+      dungeon_tiles_water_7: -3386413723391086690
+      dungeon_tiles_water_47: -2310062306367835773
+      dungeon_tiles_water_81: -7798620815152433889
+      dungeon_tiles_water_78: 3662572349959997707
+      dungeon_tiles_water_54: -1089298511457093835
+      dungeon_tiles_water_58: 1562719693407823575
+      dungeon_tiles_water_85: -3153073803262109918
+      dungeon_tiles_water_88: 6575898455663634375
+      dungeon_tiles_water_70: 4858591480450751345
+      dungeon_tiles_water_82: 2813137677363421501
+      dungeon_tiles_water_23: 4365960282074948923
+      dungeon_tiles_water_31: 6958126540931271623
+      dungeon_tiles_water_30: 1511470265200178657
+      dungeon_tiles_water_1: -2567669685416698187
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

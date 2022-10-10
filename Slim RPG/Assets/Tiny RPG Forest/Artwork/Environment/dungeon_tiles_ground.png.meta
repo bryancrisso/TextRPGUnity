@@ -213,6 +213,7 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -1612,6 +1613,70 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      dungeon_tiles_ground_45: -5100448034264108126
+      dungeon_tiles_ground_11: -1561888700577953495
+      dungeon_tiles_ground_17: -2426413966515682788
+      dungeon_tiles_ground_34: 4220043937796516835
+      dungeon_tiles_ground_39: -8232381697328761816
+      dungeon_tiles_ground_43: -4785772428888801681
+      dungeon_tiles_ground_21: 2241254089074136268
+      dungeon_tiles_ground_35: -7806002522323787512
+      dungeon_tiles_ground_58: 4696387376078392849
+      dungeon_tiles_ground_29: -7501635752169366287
+      dungeon_tiles_ground_42: 4485947820600842084
+      dungeon_tiles_ground_52: -6032176211807487943
+      dungeon_tiles_ground_22: 4107807980943562254
+      dungeon_tiles_ground_38: -1048443396243240825
+      dungeon_tiles_ground_56: -3838055488024318803
+      dungeon_tiles_ground_24: 52222619832521997
+      dungeon_tiles_ground_59: 6507034289619558831
+      dungeon_tiles_ground_62: 1587779034409760128
+      dungeon_tiles_ground_10: -7803074404613161010
+      dungeon_tiles_ground_20: 4945089459745262216
+      dungeon_tiles_ground_3: 7709254610787200268
+      dungeon_tiles_ground_57: -93260952107710330
+      dungeon_tiles_ground_6: 4081130007446360727
+      dungeon_tiles_ground_5: -6089298636260500246
+      dungeon_tiles_ground_28: 6990119737728815374
+      dungeon_tiles_ground_37: -8938544956483560043
+      dungeon_tiles_ground_12: 9145158406168619569
+      dungeon_tiles_ground_16: 2640806365729108819
+      dungeon_tiles_ground_60: -2402303153163191186
+      dungeon_tiles_ground_46: 4011215840821129314
+      dungeon_tiles_ground_36: -1807737744152106480
+      dungeon_tiles_ground_49: 6527562967142016766
+      dungeon_tiles_ground_55: 3999253083978901540
+      dungeon_tiles_ground_31: -3397103463826154878
+      dungeon_tiles_ground_47: 4976949950967181977
+      dungeon_tiles_ground_14: -2756410667977610368
+      dungeon_tiles_ground_23: -2765279666653208192
+      dungeon_tiles_ground_48: -3708361213415455186
+      dungeon_tiles_ground_51: -2597388082001787196
+      dungeon_tiles_ground_2: 515898819467709197
+      dungeon_tiles_ground_19: 4658995277434892055
+      dungeon_tiles_ground_9: 8831673282103764217
+      dungeon_tiles_ground_33: 4787221272197204980
+      dungeon_tiles_ground_50: 8913983559871684224
+      dungeon_tiles_ground_40: 2044932617921191610
+      dungeon_tiles_ground_1: -3886073218513565314
+      dungeon_tiles_ground_4: -4361438431314023425
+      dungeon_tiles_ground_13: 2198500316676108173
+      dungeon_tiles_ground_26: -5507915257300846805
+      dungeon_tiles_ground_0: -8663607836419917441
+      dungeon_tiles_ground_8: 3697782722675876529
+      dungeon_tiles_ground_61: -7130588657912063309
+      dungeon_tiles_ground_53: -4071907615298459694
+      dungeon_tiles_ground_25: 2681941640576889311
+      dungeon_tiles_ground_18: -782273009609418142
+      dungeon_tiles_ground_32: 8940524485536805118
+      dungeon_tiles_ground_27: 8874809307921642218
+      dungeon_tiles_ground_30: 3415663798160050606
+      dungeon_tiles_ground_54: -16922456179327103
+      dungeon_tiles_ground_7: -374942192918900782
+      dungeon_tiles_ground_15: -7759837295649870747
+      dungeon_tiles_ground_44: 4794189060954368437
+      dungeon_tiles_ground_41: 3373690714105950735
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
